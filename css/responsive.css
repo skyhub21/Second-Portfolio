@@ -1,0 +1,942 @@
+
+/* =========================================================
+   ANCIENT SIGNAL — RESPONSIVE STYLESHEET
+   Desktop, laptop, tablet and mobile layouts.
+   ========================================================= */
+
+
+/* 01. LARGE DESKTOPS
+   --------------------------------------------------------- */
+
+@media (min-width: 1600px) {
+    :root {
+        --sidebar-width: 275px;
+        --topbar-height: 82px;
+    }
+
+    .content-section {
+        padding-right: clamp(80px, 6vw, 120px);
+        padding-left: clamp(80px, 6vw, 120px);
+    }
+
+    .hero-title {
+        font-size: clamp(6rem, 7vw, 8rem);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px;
+    }
+}
+
+
+/* 02. LAPTOPS AND SMALL DESKTOPS
+   --------------------------------------------------------- */
+
+@media (min-width: 901px) and (max-width: 1199px) {
+    .hero-title {
+        font-size: clamp(3.6rem, 6vw, 5.6rem);
+    }
+
+    .hero-visual {
+        right: -15%;
+        width: 45vw;
+        opacity: 0.24;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+        gap: 30px;
+    }
+
+    .skill-card {
+        padding: 23px;
+    }
+}
+
+
+/* 03. TABLETS AND NARROW WINDOWS
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    :root {
+        --topbar-height: 66px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding-bottom: 82px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .topbar {
+        position: sticky;
+        z-index: 80;
+        top: 0;
+
+        min-height: var(--topbar-height);
+        padding-right: 28px;
+        padding-left: 28px;
+    }
+
+    .content-section {
+        padding: 82px 32px;
+    }
+
+    .hero-section {
+        min-height: min(720px, calc(100svh - var(--topbar-height)));
+        padding-top: 85px;
+        padding-bottom: 80px;
+    }
+
+    .hero-content {
+        max-width: 760px;
+    }
+
+    .hero-title {
+        max-width: 750px;
+        font-size: clamp(3.5rem, 9vw, 6rem);
+    }
+
+    .hero-description {
+        max-width: 580px;
+    }
+
+    .hero-visual {
+        right: -17%;
+        width: min(58vw, 470px);
+        opacity: 0.20;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-copy {
+        max-width: 760px;
+    }
+
+    .about-side {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 17px;
+    }
+
+    .project-card__content {
+        padding: 20px;
+    }
+
+    .project-card__visual {
+        min-height: 165px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contact-copy > p {
+        max-width: 620px;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 720px;
+    }
+
+    .site-footer {
+        gap: 12px;
+    }
+
+    /* Tablet navigation uses the same bottom navigation as mobile. */
+    .bottom-navigation {
+        position: fixed;
+        z-index: 150;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 3px;
+
+        min-height: 76px;
+        padding: 9px 10px max(9px, env(safe-area-inset-bottom));
+
+        border-top: 1px solid var(--border-strong);
+
+        background: rgba(7, 20, 25, 0.95);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+    }
+
+    .bottom-navigation a,
+    .bottom-navigation [data-nav] {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        min-width: 0;
+        min-height: 48px;
+        padding: 5px 2px;
+
+        border: 1px solid transparent;
+        border-radius: 9px;
+
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+        font-size: 0.59rem;
+        line-height: 1.35;
+        text-align: center;
+
+        transition:
+            color var(--transition-fast),
+            background var(--transition-fast),
+            border-color var(--transition-fast);
+    }
+
+    .bottom-navigation a.active,
+    .bottom-navigation [data-nav].active {
+        border-color: var(--border);
+        color: var(--muted-turquoise);
+        background: rgba(62, 130, 124, 0.10);
+    }
+
+    .bottom-navigation a.active::before,
+    .bottom-navigation [data-nav].active::before {
+        position: absolute;
+        top: -1px;
+        right: 25%;
+        left: 25%;
+
+        height: 2px;
+        border-radius: 2px;
+
+        background: var(--muted-turquoise);
+        content: "";
+    }
+
+    .bottom-navigation .nav-icon {
+        display: block;
+        font-size: 1.05rem;
+        line-height: 1;
+    }
+
+    .bottom-navigation .nav-label {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+
+/* 04. MOBILE PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    :root {
+        --topbar-height: 60px;
+    }
+
+    html {
+        scroll-padding-top: calc(var(--topbar-height) + 16px);
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding-bottom: calc(82px + env(safe-area-inset-bottom));
+    }
+
+    .topbar {
+        min-height: var(--topbar-height);
+        gap: 10px;
+        padding-right: 19px;
+        padding-left: 19px;
+    }
+
+    .topbar-location {
+        gap: 6px;
+        font-size: 0.61rem;
+    }
+
+    .topbar-location span:last-child {
+        overflow: hidden;
+        max-width: 130px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .topbar-separator {
+        display: none;
+    }
+
+    .topbar-actions {
+        gap: 5px;
+    }
+
+    .motion-toggle {
+        justify-content: center;
+        gap: 6px;
+        min-height: 35px;
+        padding: 7px 9px;
+        font-size: 0.58rem;
+    }
+
+    .motion-toggle__icon {
+        font-size: 0.85rem;
+    }
+
+    .content-section {
+        padding: 68px 20px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+        margin-top: 12px;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .section-heading p {
+        font-size: 0.87rem;
+        line-height: 1.85;
+    }
+
+    .section-eyebrow,
+    .eyebrow {
+        font-size: 0.62rem;
+    }
+
+
+    /* Home */
+
+    .hero-section {
+        min-height: auto;
+        padding-top: 78px;
+        padding-bottom: 66px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-kicker {
+        gap: 9px;
+        margin-bottom: 24px;
+        font-size: 0.61rem;
+        letter-spacing: 0.10em;
+    }
+
+    .hero-kicker::before {
+        width: 21px;
+    }
+
+    .hero-title {
+        margin-bottom: 22px;
+        font-size: clamp(2.75rem, 12.8vw, 4.5rem);
+        letter-spacing: -0.075em;
+        line-height: 1.02;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-title .hero-title__accent {
+        margin-top: 5px;
+    }
+
+    .hero-description {
+        margin-bottom: 27px;
+        font-size: 0.89rem;
+        line-height: 1.9;
+    }
+
+    .hero-actions {
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .hero-actions .button {
+        flex: 1 1 145px;
+        min-height: 46px;
+        padding: 0 13px;
+        font-size: 0.77rem;
+    }
+
+    .hero-footnote {
+        gap: 11px 17px;
+        margin-top: 33px;
+        font-size: 0.59rem;
+        line-height: 1.6;
+    }
+
+    .hero-footnote span {
+        gap: 7px;
+    }
+
+    .hero-visual {
+        top: 14%;
+        right: -38%;
+        width: 80vw;
+        opacity: 0.12;
+        transform: none;
+    }
+
+
+    /* About */
+
+    .about-grid {
+        gap: 27px;
+    }
+
+    .about-copy h3 {
+        font-size: 1.45rem;
+        line-height: 1.4;
+    }
+
+    .about-copy p {
+        font-size: 0.87rem;
+        line-height: 1.9;
+    }
+
+    .about-highlight {
+        margin-top: 25px;
+        padding: 17px 18px;
+    }
+
+    .about-highlight p {
+        font-size: 0.9rem;
+    }
+
+    .about-side {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .about-credentials {
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .credential-tag {
+        padding: 6px 10px;
+        font-size: 0.61rem;
+    }
+
+
+    /* Skills */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .skill-card {
+        padding: 22px;
+    }
+
+    .skill-card__index {
+        margin-bottom: 14px;
+    }
+
+    .skill-card h3 {
+        font-size: 1.08rem;
+    }
+
+    .skill-card p {
+        margin-bottom: 17px;
+        font-size: 0.81rem;
+    }
+
+    .skill-tags {
+        gap: 7px;
+    }
+
+    .skill-tag,
+    .technology-tag {
+        padding: 6px 8px;
+        font-size: 0.61rem;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* Project archive */
+
+    .project-toolbar {
+        align-items: stretch;
+        gap: 15px;
+        margin-bottom: 21px;
+    }
+
+    .project-search {
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    .project-search input,
+    .project-search__input {
+        min-height: 45px;
+        font-size: 0.8rem;
+    }
+
+    .project-count {
+        font-size: 0.62rem;
+    }
+
+    .project-filters {
+        gap: 7px;
+        margin-bottom: 22px;
+    }
+
+    .project-filter {
+        min-height: 34px;
+        padding: 6px 10px;
+        font-size: 0.60rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .project-card {
+        border-radius: var(--radius-md);
+    }
+
+    .project-card__visual {
+        min-height: 180px;
+    }
+
+    .project-card__content {
+        padding: 19px;
+    }
+
+    .project-card__title {
+        font-size: 1.23rem;
+    }
+
+    .project-card__summary {
+        font-size: 0.8rem;
+    }
+
+    .project-card__meta {
+        gap: 7px;
+    }
+
+    .project-card__status {
+        font-size: 0.55rem;
+    }
+
+
+    /* Project dialog */
+
+    .project-dialog {
+        width: calc(100% - 12px);
+        max-width: none;
+        max-height: 90vh;
+        max-height: 90dvh;
+
+        border-radius: 13px;
+    }
+
+    .project-dialog__close {
+        top: 8px;
+        width: 37px;
+        height: 37px;
+        margin: 8px 8px -45px 0;
+    }
+
+    .project-detail__header {
+        padding: 31px 18px 23px;
+    }
+
+    .project-detail__eyebrow {
+        font-size: 0.57rem;
+    }
+
+    .project-detail__title {
+        padding-right: 12px;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .project-detail__subtitle {
+        font-size: 0.82rem;
+    }
+
+    .project-detail__summary {
+        font-size: 0.82rem;
+        line-height: 1.85;
+    }
+
+    .project-detail__actions {
+        gap: 8px;
+    }
+
+    .project-detail__link {
+        min-height: 37px;
+        padding: 7px 10px;
+        font-size: 0.61rem;
+    }
+
+    .project-detail__body {
+        padding: 0 18px 25px;
+    }
+
+    .project-detail__section {
+        padding: 21px 0;
+    }
+
+    .project-detail__section h3 {
+        font-size: 0.98rem;
+    }
+
+    .project-detail__section p,
+    .project-detail__list li {
+        font-size: 0.79rem;
+    }
+
+    .project-detail__footer {
+        gap: 12px;
+        font-size: 0.60rem;
+    }
+
+    .project-gallery {
+        margin: 0 18px 24px;
+        border-radius: 9px;
+    }
+
+    .gallery-stage {
+        min-height: 175px;
+    }
+
+    .gallery-control {
+        width: 34px;
+        height: 34px;
+    }
+
+    .gallery-control--previous {
+        left: 8px;
+    }
+
+    .gallery-control--next {
+        right: 8px;
+    }
+
+    .gallery-footer {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .gallery-footer__caption {
+        font-size: 0.65rem;
+    }
+
+    .gallery-footer__counter {
+        font-size: 0.59rem;
+    }
+
+    .gallery-thumbnail {
+        flex-basis: 68px;
+        width: 68px;
+        height: 47px;
+    }
+
+
+    /* Contact */
+
+    .contact-grid {
+        gap: 28px;
+    }
+
+    .contact-copy h3 {
+        font-size: 1.65rem;
+    }
+
+    .contact-copy > p {
+        font-size: 0.84rem;
+        line-height: 1.85;
+    }
+
+    .contact-detail {
+        gap: 11px;
+        margin-top: 17px;
+    }
+
+    .contact-detail__symbol {
+        width: 37px;
+        height: 37px;
+    }
+
+    .contact-detail__value {
+        font-size: 0.79rem;
+    }
+
+    .contact-socials {
+        gap: 8px;
+        margin-top: 23px;
+    }
+
+    .contact-socials a {
+        min-height: 36px;
+        padding: 7px 10px;
+        font-size: 0.7rem;
+    }
+
+    .contact-form {
+        padding: 21px 17px;
+        border-radius: var(--radius-md);
+    }
+
+    .contact-form__heading h3 {
+        font-size: 1.2rem;
+    }
+
+    .form-control {
+        min-height: 44px;
+        padding: 11px 12px;
+        font-size: 0.8rem;
+    }
+
+    textarea.form-control {
+        min-height: 125px;
+    }
+
+    .contact-form .button {
+        min-height: 46px;
+    }
+
+
+    /* Footer */
+
+    .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 22px 20px;
+        font-size: 0.59rem;
+    }
+
+
+    /* Bottom navigation */
+
+    .bottom-navigation {
+        min-height: 73px;
+        gap: 2px;
+        padding: 7px 6px max(7px, env(safe-area-inset-bottom));
+    }
+
+    .bottom-navigation a,
+    .bottom-navigation [data-nav] {
+        gap: 5px;
+        min-height: 49px;
+        padding: 5px 1px;
+        font-size: 0.54rem;
+    }
+
+    .bottom-navigation .nav-icon {
+        font-size: 0.98rem;
+    }
+}
+
+
+/* 05. VERY SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 380px) {
+    .topbar {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .topbar-location {
+        font-size: 0.56rem;
+    }
+
+    .topbar-location span:last-child {
+        max-width: 100px;
+    }
+
+    .motion-toggle {
+        gap: 4px;
+        padding: 6px 7px;
+        font-size: 0.53rem;
+    }
+
+    .content-section {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.55rem, 12.2vw, 3.2rem);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .project-card__content {
+        padding: 16px;
+    }
+
+    .project-card__visual {
+        min-height: 155px;
+    }
+
+    .project-filter {
+        padding-right: 8px;
+        padding-left: 8px;
+        font-size: 0.56rem;
+    }
+
+    .bottom-navigation {
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+
+    .bottom-navigation a,
+    .bottom-navigation [data-nav] {
+        font-size: 0.49rem;
+    }
+
+    .bottom-navigation .nav-icon {
+        font-size: 0.9rem;
+    }
+
+    .project-detail__header {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .project-detail__body {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .project-gallery {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
+
+/* 06. LANDSCAPE MOBILE SCREENS
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .hero-visual {
+        opacity: 0.12;
+    }
+
+    .project-dialog {
+        max-height: 84vh;
+        max-height: 84dvh;
+    }
+
+    .bottom-navigation {
+        min-height: 61px;
+        padding-top: 4px;
+        padding-bottom: max(4px, env(safe-area-inset-bottom));
+    }
+
+    .bottom-navigation a,
+    .bottom-navigation [data-nav] {
+        min-height: 42px;
+        gap: 2px;
+    }
+}
+
+
+/* 07. TOUCH DEVICES
+   --------------------------------------------------------- */
+
+@media (hover: none) and (pointer: coarse) {
+    .project-card:hover,
+    .skill-card:hover,
+    .button:hover {
+        transform: none;
+    }
+
+    .project-card:hover .project-card__visual img {
+        transform: none;
+    }
+
+    .bottom-navigation a,
+    .bottom-navigation [data-nav],
+    .project-filter,
+    .gallery-control,
+    .gallery-thumbnail {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .project-card__open {
+        min-height: 46px;
+    }
+}
+
+
+/* 08. ACCESSIBILITY: REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-visual,
+    .signal-orbit,
+    .signal-core,
+    .signal-node {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .project-card,
+    .skill-card,
+    .button,
+    .gallery-thumbnail,
+    .gallery-control {
+        transition: none !important;
+    }
+}
